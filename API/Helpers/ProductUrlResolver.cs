@@ -2,8 +2,6 @@
 using AutoMapper;
 using Core.Entities;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Immutable;
 
 namespace API.Helpers
 {

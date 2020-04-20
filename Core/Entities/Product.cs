@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices.ComTypes;
-
 namespace Core.Entities
 {
     public class Product : BaseEntity
