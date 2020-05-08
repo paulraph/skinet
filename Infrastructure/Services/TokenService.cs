@@ -8,7 +8,7 @@ using Core.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Infrastructure.Data.Services
+namespace Infrastructure.Services
 {
     public class TokenService : ITokenService
     {
@@ -40,7 +40,7 @@ namespace Infrastructure.Data.Services
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);

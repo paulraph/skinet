@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Logging;
 using System;
@@ -41,6 +42,16 @@ namespace Infrastructure.Data
                     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
                     context.Products.AddRange(products);
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.DeliveryMethods.Any())
+                {
+                    var dmData = File.ReadAllText("../Infrastructure/Data/SeedData/delivery.json");
+                    var deliveryMethods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
+
+                    context.DeliveryMethods.AddRange(deliveryMethods);
 
                     await context.SaveChangesAsync();
                 }
